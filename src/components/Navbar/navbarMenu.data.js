@@ -39,9 +39,9 @@ export const navbarMenu = [
             {
               label: "Program Type",
               items: [
-                { label: "PhD", href: "/services", icon: GraduationCap },
-                { label: "DBA", href: "/services", icon: Briefcase },
-                { label: "Honorary Doctorate", href: "/services", icon: Award },
+                { label: "DBA", href: "/courses", icon: Briefcase },
+                { label: "PhD", href: "/courses/phd", icon: GraduationCap },
+                { label: "Honorary Doctorate", href: "/courses/honary-doctorate", icon: Award },
               ],
             },
           ],
