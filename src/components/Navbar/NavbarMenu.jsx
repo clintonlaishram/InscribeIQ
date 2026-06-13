@@ -1,170 +1,204 @@
-import { MenuIcon } from "lucide-react";
+import { useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import {
-  NavigationMenu, NavigationMenuContent, NavigationMenuItem,
-  NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import {
-  Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger,
+  Sheet, SheetContent, SheetHeader, SheetTitle,
 } from "@/components/ui/sheet";
-import { ArrowRight, Search } from "lucide-react";
+import { cn } from "@/lib/utils";
+import SectionViewer from "../common/SectionViewer";
+import ExtendedMenu from "./ExtendedMenu";
+import { navbarMenu } from "./navbarMenu.data";
+
+// Styling for a nav item whose route is currently active.
+const ACTIVE_NAV =
+  "bg-secondary/70 text-secondary-foreground font-semibold hover:bg-secondary hover:text-secondary-foreground";
+
+// Lookup of every extended menu, keyed by item.key — built from navbarMenu.
+const EXTENDED_MENUS = Object.fromEntries(
+  navbarMenu.filter((item) => item.menu).map((item) => [item.key, item.menu])
+);
+
+// A center-nav button that opens an extended menu (used for items with children).
+const MenuTrigger = ({ item, isOpen, isRouteActive, onToggle }) => (
+  <button
+    type="button"
+    onClick={() => onToggle(item.key)}
+    aria-expanded={isOpen}
+    className={cn(
+      "!pr-3 ml-2",
+      navigationMenuTriggerStyle(),
+      "gap-2",
+      isOpen && "bg-muted text-foreground",
+      !isOpen && isRouteActive && ACTIVE_NAV
+    )}
+  >
+    {item.label}
+    <ChevronDown
+      className={cn("h-4 w-4 transition-transform duration-300", isOpen && "rotate-180")}
+    />
+  </button>
+);
 
 export const NavbarMenu = () => {
-  const features = [
-    { title: "Dashboard", description: "Overview of your activity", href: "#" },
-    { title: "Analytics", description: "Track your performance", href: "#" },
-    { title: "Settings", description: "Configure your preferences", href: "#" },
-    { title: "Integrations", description: "Connect with other tools", href: "#" },
-    { title: "Storage", description: "Manage your files", href: "#" },
-    { title: "Support", description: "Get help when needed", href: "#" },
-  ];
+  // Which extended menu is open (a key of EXTENDED_MENUS), or null.
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  const toggleMenu = (key) => setActiveMenu((cur) => (cur === key ? null : key));
+  const closeMenu = () => setActiveMenu(null);
+
+  // A menu item counts as active when the route matches its `match` prefix.
+  const isRouteActive = (item) => (item.match ? pathname.startsWith(item.match) : false);
 
   return (
-    <section className="inter">
-      <div className="container">
-        <nav className="flex items-center justify-between border-b px-4 py-3 md:px-6 lg:px-10">
-          {/* Left Section */}
-          <div className="flex items-center gap-3 lg:gap-6 flex-1">
-            <a href="/" className="shrink-0">
-              <img
-                src="/logo.png"
-                alt="Logo"
-                className="h-10 md:h-12 w-auto"
-              />
-            </a>
-
-            {/* Search Bar - Desktop Only */}
-            <div className="hidden lg:flex items-center rounded-full border border-black/10 overflow-hidden max-w-sm w-full">
-              <input
-                type="text"
-                placeholder="Begin Your Journey..."
-                className="flex-1 px-4 py-2 outline-none bg-transparent"
-              />
-              <button className="bg-gradient-to-b from-[#6B52F9] to-[#8B79F2] text-white p-3">
-                <Search className="h-4 w-4" />
-              </button>
+    <header className="relative z-100 sticky top-0">
+      {/* Nav row — solid bg + shadow, kept above the extended menu (z-50). */}
+      <div className="relative z-50 bg-background shadow-md shadow-primary/10">
+        <SectionViewer className="inter">
+          <nav className="flex items-center justify-between py-3">
+            {/* Left Section */}
+            <div className="flex items-center gap-3 lg:gap-6 flex-1">
+              <Link to="/" className="shrink-0">
+                <img src="/logo.png" alt="Logo" className="h-12 md:h-14 w-auto" />
+              </Link>
             </div>
-          </div>
 
-          {/* Center Navigation - Desktop Only */}
-          <div className="hidden lg:flex justify-center flex-1">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-                  <NavigationMenuContent className="z-50">
-                    <div className="grid w-[600px] grid-cols-2 p-3 ">
-                      {features.map((feature, index) => (
-                        <NavigationMenuLink
-                          href={feature.href}
-                          key={index}
-                          className="rounded-md p-3 transition-colors hover:bg-muted/70"
-                        >
-                          <div>
-                            <p className="mb-1 font-semibold text-foreground">{feature.title}</p>
-                            <p className="text-sm text-muted-foreground">{feature.description}</p>
-                          </div>
-                        </NavigationMenuLink>
-                      ))}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href="#"
-                    className={navigationMenuTriggerStyle()}
+            {/* Center Navigation - Desktop Only */}
+            <div className="hidden lg:flex items-center justify-center gap-4 flex-1">
+              {navbarMenu.map((item) =>
+                item.menu ? (
+                  <MenuTrigger
+                    key={item.key}
+                    item={item}
+                    isOpen={activeMenu === item.key}
+                    isRouteActive={isRouteActive(item)}
+                    onToggle={toggleMenu}
+                  />
+                ) : (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    end={item.to === "/"}
+                    className={({ isActive }) =>
+                      cn(navigationMenuTriggerStyle(), isActive && ACTIVE_NAV)
+                    }
                   >
-                    Services
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+                    {item.label}
+                  </NavLink>
+                )
+              )}
+            </div>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href="#"
-                    className={navigationMenuTriggerStyle()}
-                  >
-                    FAQs
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+            {/* Right Section */}
+            <div className="flex items-center justify-end gap-2 flex-1">
+              <Button size="lg" variant="primary" className="hidden lg:inline-flex px-5 rounded-full font-semibold">
+                Pay Now
+              </Button>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href="#"
-                    className={navigationMenuTriggerStyle()}
-                  >
-                    Payment
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
+              <Button size="lg" variant="gradiant" className="hidden lg:inline-flex px-5 rounded-full">
+                Contact Us
+                <ArrowRight />
+              </Button>
 
-          {/* Right Section */}
-          <div className="flex items-center justify-end gap-2 flex-1">
-            <Button className="hidden lg:flex text-white rounded-full bg-gradient-to-b from-[#6B52F9] to-[#8B79F2] hover:opacity-90">
-              Contact Us
-              <ArrowRight />
-            </Button>
+              {/* Animated hamburger — mobile only */}
+              <div className="lg:hidden">
+                <button
+                  type="button"
+                  aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                  onClick={() => setMobileOpen((o) => !o)}
+                  className={cn("hamburger-btn lg:hidden", mobileOpen && "open")}
+                >
+                  <div className="hamburger-bar hamburger-bar-1" />
+                  <div className="hamburger-bar hamburger-bar-2" />
+                  <div className="hamburger-bar hamburger-bar-3" />
+                </button>
+              </div>
 
-            <Sheet>
-              <SheetTrigger asChild className="lg:hidden">
-                <Button variant="outline" size="icon">
-                  <MenuIcon className="h-4 w-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="top" className="max-h-screen overflow-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    <a href="https://www.shadcnblocks.com" className="flex items-center gap-2">
-                      <img
-                        src="https://shadcnblocks.com/images/block/logos/shadcnblockscom-icon.svg"
-                        className="max-h-8"
-                        alt="Shadcnblocks"
-                      />
-                      <span className="text-lg font-semibold tracking-tighter">Shadcnblocks.com</span>
-                    </a>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col p-4">
-                  <Accordion type="single" collapsible className="mt-4 mb-2">
-                    <AccordionItem value="solutions" className="border-none">
-                      <AccordionTrigger className="text-base hover:no-underline">Features</AccordionTrigger>
-                      <AccordionContent>
-                        <div className="grid md:grid-cols-2">
-                          {features.map((feature, index) => (
-                            <a href={feature.href} key={index} className="rounded-md p-3 transition-colors hover:bg-muted/70">
-                              <div>
-                                <p className="mb-1 font-semibold text-foreground">{feature.title}</p>
-                                <p className="text-sm text-muted-foreground">{feature.description}</p>
+              <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+                <SheetContent side="top" className="max-h-screen overflow-auto">
+                  <SheetHeader>
+                    <SheetTitle>
+                      <Link to="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
+                        <img src="/logo.png" className="h-10 w-auto" alt="Logo" />
+                      </Link>
+                    </SheetTitle>
+                  </SheetHeader>
+
+                  <div className="flex flex-col p-4">
+                    {navbarMenu.map((item) =>
+                      item.menu ? (
+                        <Accordion key={item.key} type="single" collapsible>
+                          <AccordionItem value={item.key} className="border-none">
+                            <AccordionTrigger className="px-4 py-3 text-sm font-medium hover:no-underline">
+                              {item.label}
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="flex flex-col gap-1">
+                                {item.menu.domains.map((domain) => {
+                                  const Icon = domain.icon;
+                                  return (
+                                    <Link
+                                      key={domain.id}
+                                      to={`${domain.href}?domain=${domain.id}`}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-foreground transition-colors hover:bg-muted hover:text-blue"
+                                    >
+                                      <Icon className="h-5 w-5 shrink-0 text-blue" />
+                                      <span className="font-medium">{domain.label}</span>
+                                    </Link>
+                                  );
+                                })}
                               </div>
-                            </a>
-                          ))}
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                  <div className="flex flex-col gap-6">
-                    <a href="#" className="font-medium">Templates</a>
-                    <a href="#" className="font-medium">Blog</a>
-                    <a href="#" className="font-medium">Pricing</a>
-                  </div>
-                  <div className="mt-6 flex flex-col gap-4">
-                    <Button variant="outline">Sign in</Button>
-                    <Button>Start for free</Button>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      ) : (
+                        <NavLink
+                          key={item.to}
+                          to={item.to}
+                          end={item.to === "/"}
+                          onClick={() => setMobileOpen(false)}
+                          className={({ isActive }) =>
+                            cn(
+                              "rounded-md px-4 py-3 font-medium",
+                              isActive ? ACTIVE_NAV : "hover:bg-muted"
+                            )
+                          }
+                        >
+                          {item.label}
+                        </NavLink>
+                      )
+                    )}
 
-        </nav>
+                    <div className="mt-6 flex gap-3">
+                      <Button size="lg" variant="primary" className="flex-1 rounded-full font-semibold">
+                        Pay Now
+                      </Button>
+                      <Button size="lg" variant="gradiant" className="flex-1 rounded-full">
+                        Contact Us
+                        <ArrowRight />
+                      </Button>
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+          </nav>
+        </SectionViewer>
       </div>
-    </section>
+
+      {/* One shared panel for every trigger — slides down from under the nav row */}
+      <ExtendedMenu
+        open={activeMenu !== null}
+        menu={activeMenu ? EXTENDED_MENUS[activeMenu] : null}
+        onClose={closeMenu}
+      />
+    </header>
   );
 };

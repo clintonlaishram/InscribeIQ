@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SectionViewer from "@/components/common/SectionViewer";
 
 const faqData = {
   "Common Doubts": [
@@ -86,8 +87,8 @@ const FAQs = () => {
   const questions = faqData[activeCategory];
 
   return (
-    <section className="bg-white sm:py-16 py-12  px-6 sm:px-6 lg:px-16">
-      <div className="max-w-7xl mx-auto">
+    <SectionViewer className="sm:py-16 py-12">
+      <div className="">
         {/* Header */}
         <div className="mb-10">
           <p className="text-sm font-semibold text-[#320F8C] tracking-widest uppercase mb-2">
@@ -160,7 +161,7 @@ const FAQs = () => {
           </div>
         </div>
       </div>
-    </section>
+    </SectionViewer>
   );
 };
 
