@@ -83,7 +83,7 @@ function PhD() {
   ];
 
   const whatIsCourseData = {
-    title: "What is a PhD?",
+    tagline: "What is a PhD?",
 
     heading: "What Makes a PhD Different from a Traditional Doctorate?",
 
@@ -93,7 +93,9 @@ function PhD() {
       "Unlike traditional academic doctorates, DBA programs focus on practical business impact, leadership, innovation, and organizational transformation.",
     ],
 
-    sideImage: "/images/dba.jpg",
+   
+    sideImage: "/service/MBA2.jpg",
+
 
     badge: {
       title: "Designed for",
@@ -275,7 +277,7 @@ const popularCourseData = {
 };
 
 const journeyData = {
-  eyebrow: "Your PhD journey",
+  tagline: "Your PhD journey",
 
   headingMain: "How It Works",
 
@@ -435,7 +437,7 @@ const benefitsData = {
     },
     {
       id: "thought-leadership",
-      image: null,
+      image: "/service/mbagrads.jpg",
       name: "Thought Leadership",
       role: "Corporate Strategist",
       quote:
@@ -443,7 +445,7 @@ const benefitsData = {
     },
     {
       id: "decision-making",
-      image: null,
+      image: "/service/bba4.jpg",
       name: "Research-Based Decision Making",
       role: "Research Fellow",
       quote:
@@ -453,7 +455,7 @@ const benefitsData = {
 };
 
 const whyChooseUsData = {
-  eyebrow: "Why Choose Global PhD Programs?",
+  tagline: "Why Choose Global PhD Programs?",
 
   heading: "Build Your Research Career with International Doctoral Opportunities",
 
@@ -540,7 +542,7 @@ const careerOutcomesData = {
   ],
 
   featuredImage:
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/service/career.jpg",
 
   featuredBadge: "Executive Leadership",
 

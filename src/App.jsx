@@ -20,6 +20,17 @@ import ThesisWriting from "./modules/services/writing/pages/ThesisWriting";
 import DissertationWriting from "./modules/services/writing/pages/DissertationWriting";
 import ResearchPaperWriting from "./modules/services/writing/pages/ResearchPaperWriting";
 import OtherWriting from "./modules/services/writing/pages/OtherWriting";
+import BBA from "./modules/services/pages/UG/BBA";
+import BA from "./modules/services/pages/UG/BA";
+import BCom from "./modules/services/pages/UG/BCom";
+import BCA from "./modules/services/pages/UG/BCA";
+import BTech from "./modules/services/pages/UG/BTech";
+import BSc from "./modules/services/pages/UG/BSc";
+import MBA from "./modules/services/pages/PG/MBA";
+import MCom from "./modules/services/pages/PG/MCom";
+import MTech from "./modules/services/pages/PG/MTech";
+import MA from "./modules/services/pages/PG/MA";
+import MCA from "./modules/services/pages/PG/MCA";
 
 
 function App() {
@@ -38,6 +49,23 @@ function App() {
             <Route path="phd" element={<PhD />} />
             <Route path="honary_doctorate" element={<HonaryDoctorate />} />
           </Route>
+           <Route path="courses" >
+            <Route path="bba" element={<BBA />} />
+            <Route path="bsc" element={<BSc />} />
+            <Route path="bcom" element={<BCom />} />
+            <Route path="ba" element={<BA />} />
+             <Route path="bca" element={<BCA />} />
+              <Route path="btech" element={<BTech />} />
+          </Route>
+           <Route path="courses" >
+            <Route path="mba" element={<MBA />} />
+           
+            <Route path="mcom" element={<MCom />} />
+            <Route path="mtech" element={<MTech />} />
+            <Route path="ma" element={<MA />} />
+            <Route path="mca" element={<MCA />} />
+          </Route>
+
 
           <Route path="publications">
             <Route path="abdc" element={<AbdcPublication />} />
