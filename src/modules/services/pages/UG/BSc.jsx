@@ -12,6 +12,7 @@ import FAQs from "@/modules/home/components/FAQs";
 import LeadGeneration from "../../components/Doctorate/LeadGeneration";
 import UniversityPartnership from "@/modules/home/components/UniversityPartnership";
 import WhyChooseUs from "../../components/Doctorate/WhyGlobal";
+import Banner from "../../components/PG/Banner";
 
 import {
   FlaskConical,
@@ -72,6 +73,10 @@ const programOverview = {
       description: "Hands-on lab work and experimentation.",
     },
   ],
+
+  quoteStat :{
+    quote:"Explore, discover, and innovate through the power of scientific knowledge",
+},
 };
 
 /* ================= WHY CHOOSE ================= */
@@ -231,7 +236,7 @@ const whyInscribeData = {
       title: "Best Science Universities",
       sub: "Choose from top accredited universities.",
       tags: ["B.Sc Physics", "B.Sc Chemistry", "B.Sc Biology"],
-      img: "/service/bsc-university.png",
+      img: "/service/hero1.png",
     },
 
     lightCard: {
@@ -323,6 +328,7 @@ const BSc = () => {
       <LeadGeneration />
 
       <FAQs />
+      <Banner></Banner>
     </>
   );
 };

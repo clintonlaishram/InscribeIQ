@@ -65,7 +65,7 @@ const HeroSection = ({
         }}
       >
         <div className="absolute inset-0 bg-black/60 " />
-       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full  ml-24 ">
+       <div className="relative z-10 max-w-7xl mx-auto px-6 md:py-20 w-full py-8 sm:py-10 sm:ml-8 md:ml-16  lg:ml-24 ">
   <div className="max-w-2xl">
     {/* Badge */}
     {badge && (

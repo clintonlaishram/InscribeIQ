@@ -12,12 +12,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-/**
- * Rotating accent palette for each pill's icon badge. Each entry uses the
- * faded blue fill from the root tokens, with the icon itself tinted using
- * the same family so badges read as one consistent "blue" set rather than
- * a rainbow — variety comes from the subject icon, not the color.
- */
+
 const ACCENTS = [
   { bg: "bg-[var(--blue)]/10", icon: "text-[var(--blue)]" },
   { bg: "bg-[var(--light-blue)]/15", icon: "text-[var(--light-blue)]" },
@@ -25,7 +20,6 @@ const ACCENTS = [
   { bg: "bg-[var(--light-blue)]/15", icon: "text-[var(--light-blue)]" },
 ];
 
-/** Fallback icon cycle used when a subject doesn't specify its own icon. */
 const DEFAULT_ICONS = [
   BookOpen,
   LineChart,
@@ -133,7 +127,7 @@ const KeySubject = ({
           <div className="lg:sticky lg:top-24">
             {eyebrow && (
               <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.2em] uppercase text-[var(--primary)]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--light-blue)]" />
+               
                 {eyebrow}
               </span>
             )}

@@ -12,6 +12,7 @@ import FAQs from "@/modules/home/components/FAQs";
 import LeadGeneration from "../../components/Doctorate/LeadGeneration";
 import UniversityPartnership from "@/modules/home/components/UniversityPartnership";
 import WhyChooseUs from "../../components/Doctorate/WhyGlobal";
+import Banner from "../../components/PG/Banner";
 
 
 import {
@@ -41,8 +42,8 @@ const heroData = {
   primaryButtonText: "Apply Now",
   secondaryButtonText: "Free Career Counselling",
 
-  mainImage: "/service/ba-hero1.png",
-  secondaryImage: "/service/ba-hero2.png",
+  mainImage: "/service/arts.jpg",
+  secondaryImage: "/service/MBA2.jpg",
 
   trustBadgeText: "12+ University Options",
   supportBadgeText: "Humanities & Social Sciences",
@@ -62,9 +63,9 @@ const programOverview = {
   phone: "+91 123 456 7890",
 
   images: [
-    "/service/ba1.png",
-    "/service/ba2.png",
-    "/service/ba3.png",
+    "/service/MBA.jpg",
+    "/service/hero1.png",
+    "/service/books.jpg",
   ],
 
   features: [
@@ -77,6 +78,9 @@ const programOverview = {
       description: "Develop analytical and reasoning skills.",
     },
   ],
+   quoteStat :{
+    quote:"Turn your passion for ideas, creativity, and society into a future filled with possibilities.",
+},
 };
 
 /* ================= WHY CHOOSE ================= */
@@ -190,7 +194,7 @@ const careerOutcomesData = {
     },
   ],
 
-  featuredImage: "/service/ba-career.png",
+  featuredImage: "/service/career.jpg",
   featuredBadge: "Humanities Careers",
   featuredTitle: "Build a Career in Arts & Humanities",
   featuredDescription:
@@ -237,7 +241,7 @@ const whyInscribeData = {
       title: "Best Arts Universities",
       sub: "Choose from top accredited universities.",
       tags: ["BA English", "BA History", "BA Political Science"],
-      img: "/service/ba-university.png",
+       img: "/service/hero1.png",
     },
 
     lightCard: {
@@ -328,6 +332,7 @@ const BA = () => {
       <LeadGeneration />
 
       <FAQs />
+      <Banner/>
     </>
   );
 };

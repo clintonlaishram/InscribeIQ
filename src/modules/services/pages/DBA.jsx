@@ -114,7 +114,7 @@ function DBA() {
         icon: Briefcase,
         items: [
           {
-            icon: Search,
+            icon: Target,
             label: "Applied Research",
           },
           {
@@ -137,7 +137,7 @@ function DBA() {
         icon: GraduationCap,
         items: [
           {
-            icon: Search,
+            icon: Target,
             label: "Academic Research",
           },
           {

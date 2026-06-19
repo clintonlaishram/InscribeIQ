@@ -5,6 +5,10 @@ import WhyChooseThisProgram from "../../components/UG/WhyChoooseThisProgram";
 import WhyInscribe from "../../components/Doctorate/WhyInscribe";
 import CareerOutcomes from "../../components/Doctorate/CareerOutcomes";
 import Admission from "../../components/UG/Admission";
+import KeySubject from "../../components/UG/KeySubject";
+import LeadGeneration from "../../components/Doctorate/LeadGeneration";
+import FAQs from "@/modules/home/components/FAQs";
+import Banner from "../../components/PG/Banner";
 import {
   TrendingUp,
   Briefcase,
@@ -182,13 +186,68 @@ const admissionData = {
   ],
 };
 
+const programOverviewData = {
+  badge: "PROGRAM OVERVIEW",
+  title: "Advance Your Expertise with an M.Com Degree",
+  description:
+    "Master of Commerce (M.Com) provides in-depth knowledge of accounting, finance, taxation, auditing, economics, and business management while preparing students for leadership roles in the corporate world.",
+
+  primaryButtonText: "Discover More",
+
+  phone: "+91 123 456 7890",
+
+  images: [
+    "/service/mbagrads.jpg",
+    "/service/accounting.jpg",
+    "/service/bcom2.jpg",
+  ],
+
+  features: [
+    {
+      title: "Accounting, Finance & Taxation",
+      description:
+        "Develop advanced expertise in accounting principles, financial management, taxation, and auditing practices.",
+    },
+    {
+      title: "Business Leadership & Strategy",
+      description:
+        "Build analytical, managerial, and strategic decision-making skills required for modern business leadership.",
+    },
+  ],
+
+    quoteStat :{
+    quote:"Advance your expertise in finance, accounting, and commerce to lead with confidence.",
+},
+};
+
+const keySubjects = {
+  eyebrow: "Course Details",
+  title: "Key Subjects Covered",
+  description:
+    "Explore core humanities and social science subjects.",
+
+  buttonText: "View Curriculum",
+  onButtonClick: () => console.log("Navigate to curriculum"),
+
+  subjects: [
+    "Psychology",
+    "Sociology",
+    "Political Science",
+    "English Literature",
+    "History",
+    "Public Administration",
+    "Economics",
+    "Philosophy",
+  ],
+};
+
 const MCom = () => {
   return (
     <>
       <HeroSection
-        backgroundImage="/service/hero1.png"
+        backgroundImage="/service/career.jpg"
         title="Build Expertise in Finance, Accounting & Commerce with an M.Com Degree"
-        titleHighlight="Finance"
+        titleHighlight="M.COM Degree"
         subtitle="Develop advanced knowledge in finance, taxation, auditing, and business management through industry-focused postgraduate education."
         primaryCta={{
           label: "Apply Now",
@@ -221,11 +280,15 @@ const MCom = () => {
           },
         ]}
       />
-      <ProgramOverview />
+      <ProgramOverview {...programOverviewData} />
       <WhyChooseThisProgram {...whyChooseThisProgram} />
       <WhyInscribe {...whyInscribeData} />
+      <KeySubject {...keySubjects}/>
       <CareerOutcomes {...careerOutcomesData} />
       <Admission {...admissionData} />
+      <LeadGeneration></LeadGeneration>
+      <FAQs></FAQs>
+      <Banner></Banner>
     </>
   );
 };

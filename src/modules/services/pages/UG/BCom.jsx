@@ -12,6 +12,7 @@ import FAQs from "@/modules/home/components/FAQs";
 import LeadGeneration from "../../components/Doctorate/LeadGeneration";
 import UniversityPartnership from "@/modules/home/components/UniversityPartnership";
 import WhyChooseUs from "../../components/Doctorate/WhyGlobal";
+import Banner from "../../components/PG/Banner";
 
 import {
   Landmark,
@@ -76,6 +77,10 @@ const programOverview = {
       description: "Develop business and analytical decision-making skills.",
     },
   ],
+
+  quoteStat :{
+    quote:"Master the language of business, finance, and success in a rapidly growing economy.",
+},
 };
 
 /* ================= WHY CHOOSE ================= */
@@ -236,7 +241,7 @@ const whyInscribeData = {
       title: "Best Commerce Universities",
       sub: "Choose from top accredited universities.",
       tags: ["B.Com", "Finance", "Accounting", "Taxation"],
-      img: "/service/bcom-university.png",
+      img: "/service/hero1.png",
     },
 
     lightCard: {
@@ -329,6 +334,7 @@ const BCom = () => {
       <LeadGeneration />
 
       <FAQs />
+      <Banner></Banner>
     </>
   );
 };

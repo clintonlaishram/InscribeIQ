@@ -99,22 +99,14 @@ function Admission({
         <div className="mb-16 md:mb-24 text-center">
 
           {eyebrow && (
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+            <span className="inline-block text-md font-semibold uppercase tracking-[0.24em] text-secondary">
               {eyebrow}
             </span>
           )}
 
           {title && (
             <h2 className="mt-4 max-w-4xl mx-auto text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight leading-tight">
-              {titleParts ? (
-                <>
-                  {titleParts[0]}
-                  <span className="text-secondary">{highlightWord}</span>
-                  {titleParts[1]}
-                </>
-              ) : (
-                title
-              )}
+              {title}
             </h2>
           )}
 

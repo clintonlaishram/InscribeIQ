@@ -20,7 +20,7 @@ import BTech from "./modules/services/pages/UG/BTech";
 import BSc from "./modules/services/pages/UG/BSc";
 import MBA from "./modules/services/pages/PG/MBA";
 import MCom from "./modules/services/pages/PG/MCom";
-import MSc from "./modules/services/pages/PG/MSc";
+
 import MTech from "./modules/services/pages/PG/MTech";
 import MA from "./modules/services/pages/PG/MA";
 import MCA from "./modules/services/pages/PG/MCA";
@@ -53,7 +53,7 @@ function App() {
           </Route>
            <Route path="courses" >
             <Route path="mba" element={<MBA />} />
-            <Route path="msc" element={<MSc />} />
+           
             <Route path="mcom" element={<MCom />} />
             <Route path="mtech" element={<MTech />} />
             <Route path="ma" element={<MA />} />

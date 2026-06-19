@@ -5,6 +5,10 @@ import WhyChooseThisProgram from "../../components/UG/WhyChoooseThisProgram";
 import WhyInscribe from "../../components/Doctorate/WhyInscribe";
 import CareerOutcomes from "../../components/Doctorate/CareerOutcomes";
 import Admission from "../../components/UG/Admission";
+import KeySubject from "../../components/UG/KeySubject";
+import LeadGeneration from "../../components/Doctorate/LeadGeneration";
+import FAQs from "@/modules/home/components/FAQs";
+import Banner from "../../components/PG/Banner";
 import {
   BookOpen,
   MessageSquare,
@@ -21,12 +25,12 @@ badge: "MASTER OF TECHNOLOGY",
 
 title: "Advance Your Engineering Career with an M.Tech Degree",
 
-titleHighlight: "M.Tech",
+titleHighlight: "M.Tech Degree",
 
 subtitle:
 "Gain advanced technical expertise, research capabilities, and industry-relevant knowledge through specialized postgraduate engineering programs.",
 
-backgroundImage: "/service/hero1.png",
+backgroundImage: "/service/BTechabout3.jpg",
 
 accentColor: "#320F8C",
 
@@ -85,9 +89,9 @@ const programOverviewData = {
   primaryButtonText: "Discover More",
   phone: "+91 123 456 7890",
   images: [
-    "/service/hero1.png",
-    "/service/hero2.png",
-    "/service/hero3.png",
+    "/service/Btech3.jpg",
+    "/service/growth.jpg",
+    "/service/BTechabout2.jpg",
   ],
   features: [
     {
@@ -101,6 +105,10 @@ const programOverviewData = {
         "Develop research capabilities to drive innovation in technology and engineering.",
     },
   ],
+
+    quoteStat :{
+    quote:"Elevate your technical excellence and create solutions that shape the future.",
+},
 };
 
 const whyChooseThisProgram = {
@@ -279,6 +287,28 @@ const admissionData = {
     { title: "Admission Confirmation" },
   ],
 };
+
+const keySubjects = {
+  eyebrow: "Course Details",
+  title: "Key Subjects Covered",
+  description:
+    "Explore core humanities and social science subjects.",
+
+  buttonText: "View Curriculum",
+  onButtonClick: () => console.log("Navigate to curriculum"),
+
+  subjects: [
+    "Psychology",
+    "Sociology",
+    "Political Science",
+    "English Literature",
+    "History",
+    "Public Administration",
+    "Economics",
+    "Philosophy",
+  ],
+};
+
 const MTech = () => {
   return (
     <>
@@ -286,8 +316,12 @@ const MTech = () => {
       <ProgramOverview {...programOverviewData}/>
       <WhyChooseThisProgram {...whyChooseThisProgram} />
       <WhyInscribe {...whyInscribeData}/>
+      <KeySubject {...keySubjects}/>
       <CareerOutcomes {...careerOutcomesData}/>
       <Admission {...admissionData}/>
+      <LeadGeneration/>
+      <FAQs></FAQs>
+      <Banner></Banner>
     </>
   );
 };
