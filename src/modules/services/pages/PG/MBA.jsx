@@ -6,6 +6,7 @@ import WhyInscribe from "../../components/Doctorate/WhyInscribe";
 import CareerOutcomes from "../../components/Doctorate/CareerOutcomes";
 import Admission from "../../components/UG/Admission";
 import UniversityPartnership from "@/modules/home/components/UniversityPartnership";
+import Eligibility from "../../components/UG/Eligibilty";
 import {
   BookOpen,
   MessageSquare,
@@ -310,6 +311,7 @@ const MBA = () => {
       <WhyInscribe {...whyInscribeData}/>
       <KeySubject {...keySubjects}/>
       <CareerOutcomes {...careerOutcomesData}/>
+     
       <Admission {...admissionData}/>
        <LeadGeneration/>
        <FAQs/>

@@ -143,7 +143,7 @@ const WhatIsCourse = ({
           {sideImage && (
             <div className="relative mt-10">
               <img
-                src={"/service/hero4.png"}
+                src={sideImage}
                 alt=""
                 className="max-h-[260px] w-full rounded-3xl object-cover"
               />
