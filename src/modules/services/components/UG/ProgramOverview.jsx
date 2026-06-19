@@ -118,24 +118,20 @@ const FeatureRow = ({ title, description }) => (
 
 const QuoteStatCard = ({ quote, stat }) => (
   <div
-    className="
+    className="hidden xl:block
       bg-slate-100
       rounded-2xl
       p-6
       flex
       flex-col
-      justify-between
-      h-full
-      min-h-[180px]
+      gap-4
     "
   >
     <p className="text-sm text-slate-500 leading-relaxed">
       {quote}
     </p>
 
-    <span className="text-4xl font-bold text-teal-700 mt-4">
-      {stat}
-    </span>
+ 
   </div>
 );
 
@@ -259,67 +255,25 @@ const ProgramOverview = ({
               {description}
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8 mt-10 items-start">
-              <div className="flex flex-col gap-8">
-                {features.map((feature, index) => (
-                  <FeatureRow key={index} {...feature} />
-                ))}
-              </div>
+         <div className="mt-10">
+  <div className="grid xl:grid-cols-2 gap-8 items-start">
+    
+    {/* Features */}
+    <div className="grid md:grid-cols-2 xl:grid-cols-1 gap-8">
+      {features.map((feature, index) => (
+        <FeatureRow key={index} {...feature} />
+      ))}
+    </div>
 
-              <QuoteStatCard {...quoteStat} />
-            </div>
+    {/* Quote Card - Only XL and above */}
+    <div className="hidden xl:block">
+      <QuoteStatCard {...quoteStat} />
+    </div>
 
-            {/* <div className="flex flex-wrap items-center gap-6 mt-10">
+  </div>
+</div>
 
-              <Button
-                className="
-                  bg-orange-500
-                  hover:bg-orange-600
-                  text-white
-                  rounded-full
-                  pl-8
-                  pr-2
-                  h-12
-                  flex
-                  items-center
-                  gap-3
-                "
-              >
-                {primaryButtonText}
-                <span className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4" />
-                </span>
-              </Button>
-
-              <div className="flex items-center gap-3">
-
-                <div
-                  className="
-                    h-12
-                    w-12
-                    rounded-full
-                    bg-teal-700
-                    flex
-                    items-center
-                    justify-center
-                    shrink-0
-                  "
-                >
-                  <Phone className="w-5 h-5 text-white" />
-                </div>
-
-                <div>
-                  <p className="text-xs text-orange-500 font-medium">
-                    Call Now
-                  </p>
-
-                  <p className="font-semibold text-slate-900">
-                    {phone}
-                  </p>
-                </div>
-
-              </div>
-            </div> */}
+  
 
           </div>
 

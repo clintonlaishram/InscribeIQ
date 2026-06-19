@@ -5,6 +5,8 @@ import WhyChooseThisProgram from "../../components/UG/WhyChoooseThisProgram";
 import WhyInscribe from "../../components/Doctorate/WhyInscribe";
 import CareerOutcomes from "../../components/Doctorate/CareerOutcomes";
 import Admission from "../../components/UG/Admission";
+import UniversityPartnership from "@/modules/home/components/UniversityPartnership";
+import Eligibility from "../../components/UG/Eligibilty";
 import {
   BookOpen,
   MessageSquare,
@@ -17,6 +19,8 @@ import {
 } from "lucide-react";
 import FAQs from "@/modules/home/components/FAQs";
 import LeadGeneration from "../../components/Doctorate/LeadGeneration";
+import KeySubject from "../../components/UG/KeySubject";
+import Banner from "../../components/PG/Banner";
 
 const heroData = {
 badge: "MASTER OF BUSINESS ADMINISTRATION",
@@ -28,7 +32,7 @@ titleHighlight: "MBA",
 subtitle:
 "Develop strategic leadership, management, and business decision-making skills through industry-focused postgraduate education.",
 
-backgroundImage: "/service/hero1.png",
+backgroundImage: "/service/career.jpg",
 
 accentColor: "#320F8C",
 
@@ -87,9 +91,9 @@ const programOverviewData = {
   primaryButtonText: "Discover More",
   phone: "+91 123 456 7890",
   images: [
-    "/service/hero1.png",
-    "/service/hero2.png",
-    "/service/hero3.png",
+    "/service/MBA.jpg",
+    "/service/MBA2.jpg",
+    "/service/bba4.jpg",
   ],
   features: [
     {
@@ -103,6 +107,10 @@ const programOverviewData = {
         "Learn business strategy, planning, and decision-making skills.",
     },
   ],
+
+    quoteStat :{
+    quote:"Lead organizations, drive innovation, and unlock limitless career opportunities.",
+},
 };
 
 const whyChooseThisProgram = {
@@ -259,7 +267,7 @@ const careerOutcomesData = {
 const admissionData = {
   eyebrow: "HOW IT WORKS",
   title: "MBA Admission Process",
-  highlightWord: "Admission",
+
   description:
     "Simple and transparent admission process for MBA programs.",
 
@@ -271,18 +279,43 @@ const admissionData = {
     { title: "Admission Confirmation" },
   ],
 };
+const keySubjects = {
+  eyebrow: "Course Details",
+  title: "Key Subjects Covered",
+  description:
+    "Explore core humanities and social science subjects.",
+
+  buttonText: "View Curriculum",
+  onButtonClick: () => console.log("Navigate to curriculum"),
+
+  subjects: [
+    "Psychology",
+    "Sociology",
+    "Political Science",
+    "English Literature",
+    "History",
+    "Public Administration",
+    "Economics",
+    "Philosophy",
+  ],
+};
+
 
 const MBA = () => {
   return (
     <>
       <HeroSection {...heroData} />
+      <UniversityPartnership/>
       <ProgramOverview {...programOverviewData}/>
       <WhyChooseThisProgram {...whyChooseThisProgram} />
       <WhyInscribe {...whyInscribeData}/>
+      <KeySubject {...keySubjects}/>
       <CareerOutcomes {...careerOutcomesData}/>
+     
       <Admission {...admissionData}/>
        <LeadGeneration/>
        <FAQs/>
+       <Banner></Banner>
       
 
     </>

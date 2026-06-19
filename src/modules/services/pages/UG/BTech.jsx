@@ -12,6 +12,7 @@ import FAQs from "@/modules/home/components/FAQs";
 import LeadGeneration from "../../components/Doctorate/LeadGeneration";
 import UniversityPartnership from "@/modules/home/components/UniversityPartnership";
 import WhyChooseUs from "../../components/Doctorate/WhyGlobal";
+import Banner from "../../components/PG/Banner";
 
 import {
   Code,
@@ -76,6 +77,9 @@ const programOverview = {
       description: "Hands-on experience with real-world systems.",
     },
   ],
+  quoteStat :{
+    quote:"Build the future with innovation, technology, and the skills that power tomorrow's world.",
+},
 };
 
 /* ================= WHY CHOOSE ================= */
@@ -236,7 +240,7 @@ const whyInscribeData = {
       title: "Best Engineering Universities",
       sub: "Choose from top accredited universities.",
       tags: ["B.Tech CSE", "IT", "AI & ML", "Data Science"],
-      img: "/service/btech-university.png",
+      img: "/service/hero1.png",
     },
 
     lightCard: {
@@ -331,6 +335,8 @@ const BTech = () => {
       <LeadGeneration />
 
       <FAQs />
+
+      <Banner></Banner>
     </>
   );
 };

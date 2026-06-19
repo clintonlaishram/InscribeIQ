@@ -98,7 +98,9 @@ const heroSectionData = {
       "It is designed to honor distinguished accomplishments and lifelong impact.",
     ],
 
-    sideImage: "/images/dba.jpg",
+    
+    sideImage: "/service/MBA2.jpg",
+
 
     badge: {
       title: "Designed for",
@@ -439,7 +441,7 @@ const benefitsData = {
     },
     {
       id: "thought-leadership",
-      image: null,
+      image: "/service/bcom.jpg",
       name: "Thought Leadership",
       role: "Corporate Strategist",
       quote:
@@ -447,7 +449,7 @@ const benefitsData = {
     },
     {
       id: "decision-making",
-      image: null,
+      image: "/service/bba4.jpg",
       name: "Research-Based Decision Making",
       role: "Research Fellow",
       quote:
@@ -557,7 +559,7 @@ const careerOutcomesData = {
   ],
 
   featuredImage:
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/service/career.jpg",
 
   featuredBadge: "Executive Leadership",
 

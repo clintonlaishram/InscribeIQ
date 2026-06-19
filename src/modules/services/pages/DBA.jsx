@@ -37,9 +37,9 @@ function DBA() {
 
   duration: "Global University",
 
-  imageSrc1: "/service/hero1.png",
-  imageSrc2: "/service/hero2.png",
-  imageSrc3: "/service/hero3.png",
+  imageSrc1: "/service/MBA.jpg",
+  imageSrc2: "/service/growth.jpg",
+  imageSrc3: "/service/hero4.jpg",
   imageSrc4: "/service/hero4.png",
 
   imageAlt1: "CEO in boardroom",
@@ -98,7 +98,7 @@ function DBA() {
       "Unlike traditional academic doctorates, DBA programs focus on practical business impact, leadership, innovation, and organizational transformation.",
     ],
 
-    sideImage: "/images/dba.jpg",
+    sideImage: "/service/MBA2.jpg",
 
     badge: {
       title: "Designed for",
@@ -114,7 +114,7 @@ function DBA() {
         icon: Briefcase,
         items: [
           {
-            icon: Search,
+            icon: Target,
             label: "Applied Research",
           },
           {
@@ -137,7 +137,7 @@ function DBA() {
         icon: GraduationCap,
         items: [
           {
-            icon: Search,
+            icon: Target,
             label: "Academic Research",
           },
           {
@@ -204,12 +204,12 @@ function DBA() {
       shape: "circle",
     },
     {
-      src: "/service/hero2.png",
+      src: "/service/BBA.jpg",
       alt: "Graduate",
       shape: "circle",
     },
     {
-      src: "/service/hero4.png",
+      src: "/service/mbagrads.jpg",
       alt: "Campus",
       shape: "rounded",
     },
@@ -406,7 +406,7 @@ const benefitsData = {
   items: [
     {
       id: "executive-credibility",
-      image: "/service/hero1.png",
+      image: "/service/bcom.jpg",
       name: "Executive Credibility",
       role: "Professional Recognition",
       quote:
@@ -414,7 +414,7 @@ const benefitsData = {
     },
     {
       id: "thinking",
-      image: "/service/hero2.png",
+      image: "/service/bcom2.jpg",
       name: "Strategic Thinking",
       role: "Education Consultant",
       quote:
@@ -439,7 +439,7 @@ const benefitsData = {
     },
     {
       id: "thought-leadership",
-      image: null,
+      image: "/service/accounting.jpg",
       name: "Thought Leadership",
       role: "Corporate Strategist",
       quote:
@@ -447,7 +447,7 @@ const benefitsData = {
     },
     {
       id: "decision-making",
-      image: null,
+      image: "/service/bba4.jpg",
       name: "Research-Based Decision Making",
       role: "Research Fellow",
       quote:
@@ -544,7 +544,7 @@ const careerOutcomesData = {
   ],
 
   featuredImage:
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/service/career.jpg",
 
   featuredBadge: "Executive Leadership",
 

@@ -13,6 +13,7 @@ import FAQs from "@/modules/home/components/FAQs";
 import LeadGeneration from "../../components/Doctorate/LeadGeneration";
 import UniversityPartnership from "@/modules/home/components/UniversityPartnership";
 import WhyChooseUs from "../../components/Doctorate/WhyGlobal";
+import Banner from "../../components/PG/Banner";
 import {
   BookOpen,
   Brain,
@@ -40,8 +41,8 @@ const heroData = {
   primaryButtonText: "Apply Now",
   secondaryButtonText: "Free Career Counselling",
 
-  mainImage: "/service/bca-ai-hero1.png",
-  secondaryImage: "/service/bca-ai-hero2.png",
+  mainImage: "/service/bca1.jpg",
+  secondaryImage: "/service/bca3.jpg",
 
   trustBadgeText: "Multiple University Options",
   supportBadgeText: "AI & Technology Focused",
@@ -61,9 +62,9 @@ const programOverview = {
   phone: "+91 123 456 7890",
 
   images: [
-    "/service/bca1.png",
-    "/service/bca2.png",
-    "/service/bca3.png",
+    "/service/growth.jpg",
+    "/service/bca.jpg",
+    "/service/Btech3.jpg",
   ],
 
   features: [
@@ -78,6 +79,10 @@ const programOverview = {
         "Gain practical experience through projects and real-world applications.",
     },
   ],
+
+  quoteStat :{
+    quote:"Start your journey into technology and build the skills behind the digital revolution.",
+},
 };
 
 /* ================= WHY CHOOSE THIS PROGRAM ================= */
@@ -156,14 +161,14 @@ const keySubjects = {
   buttonText: "View Curriculum",
 
   subjects: [
-    "Programming Languages",
-    "Artificial Intelligence",
+     "Artificial Intelligence",
     "Machine Learning",
     "Data Science",
     "Cloud Computing",
+    "Advanced Programming",
+    "Software Engineering",
     "Cyber Security",
-    "Database Management",
-    "Software Development",
+    "Database Systems ",
   ],
 };
 
@@ -226,7 +231,7 @@ const careerOutcomesData = {
     },
   ],
 
-  featuredImage: "/service/bca-career.png",
+  featuredImage: "/service/career.jpg",
   featuredBadge: "Technology Careers",
   featuredTitle: "Launch Your Career in AI & Emerging Technologies",
   featuredDescription:
@@ -273,7 +278,7 @@ const whyInscribeData = {
       title: "Top AI-Focused Universities",
       sub: "Choose from leading universities offering AI-integrated BCA programs.",
       tags: ["Artificial Intelligence", "Machine Learning", "Data Science"],
-      img: "/service/bca-university.png",
+      img: "/service/hero1.png",
     },
 
     lightCard: {
@@ -392,6 +397,7 @@ const BCA = () => {
       <LeadGeneration />
 
       <FAQs faqData={faqData} />
+      <Banner></Banner>
     </>
   );
 };
